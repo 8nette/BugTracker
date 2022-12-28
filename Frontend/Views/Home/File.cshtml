@@ -1,0 +1,27 @@
+﻿@model IdModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="file">
+    <div class="greenwrapper">
+        <h1>Upload File to bug @Model.BugTitle</h1>
+
+        @if (ViewBag.ReturnMessage != null)
+        {
+            <p class="red">@ViewBag.ReturnMessage</p>
+        }
+
+        @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id = "Myform" }))
+        {
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="BugTitle" />
+
+            <input type="file" name="uploadFile" />
+            <input type="submit" value="Save" />
+        }
+
+        <a asp-controller="Home" asp-action="Bug" asp-route-id="@Model.Id">Back to Bug</a>
+    </div>
+</div>

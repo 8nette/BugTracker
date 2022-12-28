@@ -1,0 +1,158 @@
+﻿@model RoadmapModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="productroadmap">
+    @if (ViewBag.ReturnMessage != null)
+    {
+        <p class="red">@ViewBag.ReturnMessage</p>
+    }
+
+    <h1>Product Roadmap for @Model.product.Name</h1>
+
+    <div class="buglist">
+        <h3>Product Bugs</h3>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Priority</th>
+                <th>Resolution</th>
+            </tr>
+
+            @foreach (Backend.Models.Bug bug in Model.productBugs)
+            {
+                <tr>
+                    <td>@bug.Title</td>
+                    <td>@bug.Priority</td>
+                    <td>
+                        <p class="res">@bug.Resolution</p>
+                    </td>
+                </tr>
+            }
+
+            @if (Model.productBugs.Count() == 0)
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="tasks">
+        <div class="buttons">
+            <ul class="newtask">
+                <li><a asp-controller="Survey" asp-action="NewTask" asp-route-id="@Model.product.Id">New Task</a></li>
+            </ul>
+        </div>
+
+        @foreach (Backend.Models.DateAndTasks dateAndTasks in Model.tasks)
+        {
+            <h4>@dateAndTasks.simpleDate</h4>
+
+            <table>
+                <tr>
+                    <th>Task</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Bugs</th>
+                </tr>
+
+                @if (Model.tasks.Count() == 0)
+                {
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+
+                @foreach (Backend.Models.Task task in dateAndTasks.Tasks)
+                {
+                    <tr class="tasktabletr" onclick="location.href = '@(Url.Action("Task", "Survey", new { id = @task.Id }))'">
+                        <td>@task.Title</td>
+                        <td>@task.Start.ToString("dd/MM/yyyy")</td>
+                        <td>@task.End.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <ul>
+                                @foreach (Backend.Models.Bug bug in task.TaskBugs)
+                                {
+                                    <div>
+                                        <input type="hidden" value="@bug.Resolution" class="bug" />
+                                    <li>@bug.Title</li>
+                </div>
+            }
+                                </ul>
+                                </td>
+                                </tr>
+                            }
+                </table>
+            }
+    </div>
+</div>
+
+@section scripts {
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".bug").each(function (index, element) {
+                var resolution = element.value;
+                var li = $(element).closest('div').find('li');
+
+                switch (resolution) {
+                    case "Open":
+                        li.addClass("open");
+                        break;
+                    case "NotRep":
+                        li.addClass("notrep");
+                        break;
+                    case "NotFix":
+                        li.addClass("notfix");
+                        break;
+                    case "Test":
+                        li.addClass("test");
+                        break;
+                    case "Resolved":
+                        li.addClass("resolved");
+                        break;
+                    case "Closed":
+                        li.addClass("closed");
+                        break;
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $(".res").each(function (index, element) {
+                var dom = $(element);
+                var resolution = dom.html();
+
+                switch (resolution) {
+                    case "Open":
+                        dom.addClass("open");
+                        break;
+                    case "Cannot Reproduce":
+                        dom.addClass("notrep");
+                        break;
+                    case "Will not Fix":
+                        dom.addClass("notfix");
+                        break;
+                    case "Ready for Testing":
+                        dom.addClass("test");
+                        break;
+                    case "Resolved":
+                        dom.addClass("resolved");
+                        break;
+                    case "Closed":
+                        dom.addClass("closed");
+                }
+            })
+        });
+    </script>
+}

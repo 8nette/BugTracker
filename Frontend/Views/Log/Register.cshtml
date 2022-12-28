@@ -1,0 +1,34 @@
+﻿@model RegisterModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="register">
+    <div class="greenwrapper">
+        <h1>Register</h1>
+
+        @if (ViewBag.ReturnMessage != null)
+        {
+            <p class="red">@ViewBag.ReturnMessage</p>
+        }
+
+        <div class="form">
+            <form action="Register" method="post">
+                <label asp-for="Name">Name</label>
+                <input asp-for="Name" />
+
+                <label asp-for="Username">Username</label>
+                <input asp-for="Username" />
+
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" />
+
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" />
+
+                <input type="submit" value="Register" />
+            </form>
+        </div>
+    </div>
+</div>

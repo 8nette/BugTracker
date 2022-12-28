@@ -1,0 +1,739 @@
+﻿:root {
+    --DarkGreen: #608f82;
+    --LightLightGreen: #a7d1c5;
+    --LightGreen: #89d6c0;
+    --Black: #3a3d3b;
+    --White: #f5f5f5;
+    --Grey: #ebf2f0;
+    --Grey2: #e1ebe8;
+    --NotRep: #748a83;
+    --MuchiGreen: #5e8a7c;
+    --Resolved: #7dab9e;
+    --Test: #586e67;
+}
+
+main .products {
+    margin: 8em auto;
+    width: 50%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+    min-height: 90vh;
+}
+
+main .products h1 {
+    font-weight: lighter !important;
+    margin: 0 0 1em 0;
+    text-align: center;
+}
+
+main .products table {
+    width: 100%;
+}
+
+main .products table td {
+    padding: 1em;
+    font-weight: lighter !important;
+    text-align: center;
+}
+
+main .products table tr:nth-child(2n) {
+    background-color: var(--Grey2);
+}
+
+main .products table tr:hover {
+    background-color: var(--DarkGreen);
+    color: white;
+}
+
+main .productroadmap {
+    margin: 2em 2em 4em 2em !important;
+    min-height: 90vh;
+    padding: 0em 0;
+}
+
+main .productroadmap h1 {
+    text-align: center;
+    font-weight: lighter;
+    margin: 0 0 0.5em 0;
+    padding: 1em;
+    background-color: var(--Grey);
+    border-radius:10px;
+}
+
+main .productroadmap .buglist {
+    width: 40%;
+    position: relative;
+    float: left;
+    padding: 1em;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    margin: 0 1em 2em 0;
+}
+
+main .productroadmap .buglist h3 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 1em 0;
+}
+
+main .productroadmap .buglist table {
+    width: 100%;
+}
+
+main .productroadmap .buglist table tr {
+    pointer-events: none;
+}
+
+main .productroadmap .buglist table th:nth-child(3) {
+    width: 46%;
+}
+
+main .productroadmap .buglist table td {
+    width: 27%;
+    padding: 1em 1em 1em 1em;
+}
+
+main .productroadmap .buglist table td:nth-child(3) {
+    width: 46%;
+}
+
+main .productroadmap .buglist table p {
+    padding: 0.5em;
+    border-radius: 5px;
+    width: fit-content;
+    margin: 0.2em 0 0 0;
+    display: block;
+}
+
+main .productroadmap .tasks {
+    padding: 1em;
+    background-color: var(--Grey);
+    color: var(--Black);
+    margin: 0 0 0 0em;
+    position: relative;
+    float: left;
+    width: 58.5%;
+    border-radius: 10px;
+    margin: 0 0 2em 0;
+}
+
+main .productroadmap .tasks .newtask {
+    padding: 0;
+    margin: 1em 0;
+}
+
+main .productroadmap .tasks .newtask li {
+    list-style: none;
+}
+
+main .productroadmap .tasks .newtask a {
+    text-decoration: none;
+    background-color: var(--DarkGreen);
+    color: white;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+main .productroadmap .tasks .newtask a:hover {
+    background-color: var(--LightGreen);
+}
+
+main .productroadmap .tasks h3 {
+    font-weight: lighter;
+    text-align: center;
+    margin: 1em 0;
+}
+
+main .productroadmap .tasks h4 {
+    font-weight: lighter;
+    text-align: center;
+}
+
+main .productroadmap .tasks table {
+    margin: 0 0 2em 0;
+    width: 100%;
+}
+
+main .productroadmap .tasks table tr:nth-child(2n) {
+    background-color: var(--Grey2);
+}
+
+main .productroadmap .tasks table tr:hover {
+    background-color: var(--DarkGreen);
+    color: white;
+}
+
+main .productroadmap .tasks table tr:nth-child(1) {
+    pointer-events: none;
+}
+
+main .productroadmap .tasks table tr th {
+    font-weight: normal;
+}
+
+main .productroadmap .tasks table tr td, main .productroadmap .tasks table tr th {
+    padding: 1em !important;
+}
+
+main .productroadmap .tasks table tr td:nth-child(4) ul {
+    padding: 0;
+    margin: 0;
+}
+
+main .productroadmap .tasks table tr td:nth-child(4) ul li {
+    display: inline-block;
+    list-style: none;
+    padding: 0.3em;
+    border-radius: 5px;
+    color: white;
+    margin: 0.1em 0;
+    font-size: small;
+}
+
+main .productroadmap .tasks table tr td:nth-child(4) div {
+    display: inline-block;
+}
+
+main .productroadmap .open {
+    background-color: var(--LightGreen);
+    color: white;
+}
+
+main .productroadmap .notrep {
+    background-color: var(--NotRep);
+    color: white;
+}
+
+main .productroadmap .notfix {
+    background-color: var(--Black);
+    color: white;
+}
+
+main .productroadmap .test {
+    background-color: var(--DarkGreen);
+    color: white;
+}
+
+main .productroadmap .resolved {
+    background-color: var(--Resolved);
+    color: white;
+}
+
+main .productroadmap .closed {
+    background-color: white;
+    color: var(--Black) !important;
+}
+
+main .thenewtask {
+    margin: 8em auto;
+    width: 75%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 7em 15em;
+    min-height: 90vh;
+}
+
+main .thenewtask h1 {
+    font-weight: lighter;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .thenewtask input {
+    all: unset;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 5px;
+    display: block;
+    margin: 0 0 1em 0;
+    font-weight: lighter;
+    width: 100%;
+    padding: 0.5em;
+}
+
+main .thenewtask input[type=submit], main .thenewtask a {
+    all: unset;
+    display: inline-block;
+    margin: 1em 0 0 0;
+    padding: 0.5em;
+    background-color: var(--DarkGreen);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+main .thenewtask input[type=submit]:hover, main .thenewtask a:hover {
+    background-color: var(--LightGreen);
+}
+
+main .thenewtask a {
+    float: right;
+    margin: 1em -1em 0 0;
+}
+
+main .task .greenwrapper {
+    margin: 8em auto;
+    width: 50%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 7em 7em;
+    min-height: 90vh;
+}
+
+main .task h1 {
+    text-align: center;
+    font-weight: lighter !important;
+    margin: 0 0 1em 0;
+}
+
+main .task table {
+    width: 100%;
+    margin: 0 0 2em 0;
+}
+
+main .task table td {
+    padding: 1em;
+}
+
+main .task table td:nth-child(1) {
+    font-weight: normal;
+    width: 30%;
+}
+
+main .task table td a {
+    color: white !important;
+    background-color: var(--LightGreen);
+    padding: 0.2em;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+main .task .buttons {
+    margin: 2em 0 0 0;
+    padding: 0;
+}
+
+main .task .buttons ul {
+    margin: 3em 0 3em 0;
+    padding: 0;
+}
+
+main .task .buttons ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+main .task .buttons ul li a {
+    padding: 1em;
+    color: white;
+    background-color: var(--DarkGreen);
+    border-radius: 5px;
+    margin: 0 1em 0 0;
+}
+
+main .task .buttons ul li a:hover {
+    background-color: var(--LightGreen);
+    text-decoration: none;
+}
+
+main .edittask {
+    margin: 8em auto;
+    width: 50%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+    font-weight: lighter;
+}
+
+main .edittask h1 {
+    font-weight: lighter !important;
+    text-align: center;
+}
+
+main .edittask a {
+    padding: 0.5em;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    margin: 0 0 1em 0em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+main .edittask a:hover {
+    background-color: var(--LightGreen);
+}
+
+main .edittask label {
+    display: block;
+}
+
+main .edittask input {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+}
+
+main .edittask input[type=text] {
+    width: 100%;
+}
+
+main .edittask input[type=datetime] {
+    width: 100%;
+}
+
+main .edittask input[type=submit] {
+    margin: 2em 0 0 0;
+    padding: 0.5em;
+    display: inline-block;
+}
+
+main .edittask input[type=submit]:hover {
+    background-color: var(--LightGreen);
+}
+
+main .statistics {
+    margin: 4em auto;
+    width: 95%;
+    border-radius: 10px;
+    min-height: 90vh;
+}
+
+main .statistics #overallCompletion {
+    width: 49.5%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0 1em 0;
+    position: relative;
+    float: left;
+    margin-right: 1%;
+}
+
+main .statistics #overallPriority {
+    width: 49.5%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0 1em 0;
+    position: relative;
+    float: left;
+}
+
+main .statistics #currentOpen {
+    width: 100%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0 2em 0;
+    position: relative;
+    float: left;
+    margin: 0.5em 0 0 0;
+}
+
+main .statistics #openAges {
+    width: 100%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0;
+    position: relative;
+    float: right;
+    margin: 0.5em 0 0 0;
+}
+
+main .statistics #averageDefectAge {
+    width: 100%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0;
+    position: relative;
+    float: right;
+    margin: 0.5em 0 0 0;
+}
+
+main .statistics #taskOpenBugs {
+    width: 100%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0;
+    position: relative;
+    float: left;
+    margin: 0.5em 0 0 0;
+}
+
+main .statistics #submittedOpenClosed {
+    width: 100%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0;
+    position: relative;
+    float: right;
+    margin: 0.5em 0 0 0;
+}
+
+main .statistics #developerProductivity0 {
+    width: 49.5%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0;
+    position: relative;
+    float: left;
+    margin: 0.5em 1% 0 0;
+}
+
+main .statistics #developerProductivity1 {
+    width: 49.5%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0;
+    position: relative;
+    float: left;
+    margin: 0.5em 0 0 0;
+}
+
+main .statistics #developerProductivity2 {
+    width: 49.5%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0;
+    position: relative;
+    float: left;
+    margin: 0.5em 1% 0 0;
+}
+
+main .statistics #developerProductivity3 {
+    width: 49.5%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0;
+    position: relative;
+    float: left;
+    margin: 0.5em 0 0 0;
+}
+
+main .statistics #areaBugs {
+    width: 100%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 2em 0;
+    position: relative;
+    float: right;
+    margin: 0.5em 0 4em 0;
+}
+
+main .releaseplanning {
+    margin: 8em auto;
+    width: 75%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 7em 15em;
+    min-height: 90vh;
+    font-weight: lighter !important;
+    text-align: center;
+}
+
+main .releaseplanning h1 {
+    font-weight: lighter !important;
+    margin: 0 0 1em;
+}
+
+main .releaseplanning h3 {
+    font-weight: lighter !important;
+    background-color: var(--DarkGreen);
+    color: white;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+main .releaseplanning ul {
+    list-style: none;
+    margin: 0 0 3em 0;
+    padding: 0;
+}
+
+main .releaseplanning ul li {
+    margin: auto;
+}
+
+main .releaseplanning ul li:nth-child(2n) {
+    background-color: var(--Grey2);
+}
+
+main .releaseplanning ul li:hover {
+    background-color: var(--DarkGreen);
+    color: white;
+}
+
+main .release {
+    margin: 2em auto;
+    width: 95%;
+    padding: 1em;
+    min-height: 90vh;
+}
+
+main .release h1 {
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 1em;
+    font-weight: lighter !important;
+    text-align: center;
+}
+
+main .release .releaseplan {
+    background-color: var(--Grey);
+    padding: 3em;
+    font-weight: lighter !important;
+    width: 100%;
+    border-radius: 10px;
+}
+
+main .release .releaseplan table {
+    /*border-collapse: collapse;
+    border-spacing: 6em;*/
+}
+
+main .release .releaseplan table td {
+    padding: 1em;
+}
+
+main .release .releaseplan table td:nth-child(2) {
+    padding: 1em 8em 1em 1em;
+}
+
+main .release .releaseplan table td:nth-child(1) {
+    font-weight: normal !important;
+}
+
+main .release .releaseplan table tr {
+    display: inline-block;
+}
+
+main .release .releaseplan table tr:nth-child(1),
+main .release .releaseplan table tr:nth-child(2),
+main .release .releaseplan table tr:nth-child(3) {
+    /*background-color: var(--DarkGreen);
+    color: white;*/
+}
+
+main .release .features {
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 3em 2em;
+    width: 100%;
+    margin: 0.5em 0;
+}
+
+main .release .features h3 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .release .features table {
+    width: 100%;
+}
+
+main .release .features table th {
+    font-weight: normal !important;
+    padding: 2em;
+}
+
+main .release .features table td {
+    padding: 2em;
+}
+
+main .release .features table tr:nth-child(2n) {
+    background-color: var(--Grey2);
+}
+
+main .release .features table p {
+    margin: 0;
+}
+
+main .release .buglist {
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 3em 1em 3em 1em;
+    font-weight: lighter !important;
+    width: 40%;
+    float: left;
+}
+
+main .release .buglist h3 {
+    font-weight: lighter !important;
+    text-align: center;
+}
+
+main .release .buglist table {
+    margin: 0;
+    padding: 0;
+}
+
+main .release .buglist table tr:nth-child(2n+1):hover {
+    background-color: var(--Grey) !important;
+    color: var(--Black);
+}
+
+main .release .buglist table tr:nth-child(2n):hover {
+    background-color: var(--Grey2) !important;
+    color: var(--Black);
+}
+
+main .release .buglist table p {
+    margin: 0;
+}
+
+main .release .tasks {
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 3em 1em;
+    font-weight: lighter !important;
+    width: 59%;
+    float: left;
+    margin: 0 0 3em 1%;
+}
+
+main .release .tasks h3 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .release .tasks table {
+    width: 100%;
+}
+
+main .release .tasks table tr {
+    border: 10px solid var(--Grey);
+}
+
+main .release .tasks table tr:nth-child(2n) {
+    background-color: var(--Grey2);
+}
+
+main .release .tasks table th {
+    font-weight: normal !important;
+}
+
+main .release .tasks table th, main .release .tasks table td {
+    padding: 0.5em 2em;
+}
+
+main .release .tasks table ul {
+    list-style: none;
+    margin: 1em 0;
+    padding: 0;
+}
+
+main .release .tasks table ul li {
+    white-space: nowrap;
+    padding: 0.2em;
+    margin: 0;
+    display: inline-block;
+    width: auto;
+    background-color: var(--DarkGreen);
+    color: white;
+}

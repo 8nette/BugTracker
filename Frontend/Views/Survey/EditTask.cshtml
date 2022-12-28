@@ -1,0 +1,86 @@
+﻿@model Backend.Models.SimpleTask
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="edittask">
+    <div class="greenwrapper">
+        <h1>Update Task @Model.Title</h1>
+
+        @if (ViewBag.ReturnMessage != null)
+        {
+            <p class="red">@ViewBag.ReturnMessage</p>
+        }
+
+        <div class="form">
+            <form action="EditTask" method="post">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="ProductId" />
+
+                <label asp-for="Title">Title</label>
+                <input asp-for="Title" />
+
+                <label asp-for="Start">Start</label>
+                <input asp-for="Start" type="datetime" />
+
+                <label asp-for="End">End</label>
+                <input asp-for="End" type="datetime" />
+
+                <label asp-for="TaskBugs">Bugs</label>
+                @Html.TextBoxFor(model => model.TaskBugs, htmlAttributes: new { @id = "bugs" })
+
+                <input type="submit" value="Update" />
+
+                <a asp-controller="Survey" asp-action="ProductRoadmap" asp-route-id="@Model.ProductId">Back to Product Roadmap</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#bugs").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Survey/GetJsonBugs",
+                        type: "POST",
+                        dataType: "json",
+                        data: { id: '@Model.ProductId', keyword: extractLast(request.term) },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        }
+                    })
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+                    var terms = split(this.value);
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push(ui.item.value);
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push("");
+                    this.value = terms.join(", ");
+                    return false;
+                }
+            });
+        })
+
+        function split(val) {
+            return val.split(/,\s*/);
+        }
+
+        function extractLast(term) {
+            return split(term).pop();
+        }
+    </script>
+}

@@ -1,0 +1,80 @@
+﻿@model BugModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="bug">
+    @if (ViewBag.ReturnMessage != null)
+    {
+        <p class="red">@ViewBag.ReturnMessage</p>
+    }
+
+    <h1>@Model.Bug.Title</h1>
+
+    <table>
+        <tr>
+            <td>Description</td>
+            <td>@Model.Bug.Description</td>
+        </tr>
+        <tr>
+            <td>Created At</td>
+            <td>@Model.Bug.Created</td>
+        </tr>
+        <tr>
+            <td>Area</td>
+            <td>@Model.Bug.Area</td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td>@Model.Bug.Category</td>
+        </tr>
+        <tr>
+            <td>Product</td>
+            <td>@Model.Bug.Product</td>
+        </tr>
+        <tr>
+            <td>Release</td>
+            <td>@Model.Bug.Release</td>
+        </tr>
+        <tr>
+            <td>Developers</td>
+            <td>@Model.Bug.Developers</td>
+        </tr>
+        <tr>
+            <td>Customers</td>
+            <td>@Model.Bug.Customers</td>
+        </tr>
+        <tr>
+            <td>Resolution</td>
+            <td>@Model.Bug.Resolution</td>
+        </tr>
+        <tr>
+            <td>Priority</td>
+            <td>@Model.Bug.Priority</td>
+        </tr>
+        <tr>
+            <td>Files</td>
+            <td>
+                @foreach (Backend.Models.File file in Model.Files)
+            {
+                <a asp-controller="Home"
+                   asp-action="DownloadFile"
+                   asp-route-id="@file.BugId"
+                   asp-route-name="@file.Name">@file.Name</a>
+            }
+            </td>
+        </tr>
+    </table>
+
+    <div class="buttons">
+        <ul>
+            <li><a asp-controller="Home" asp-action="Bugs">Back to Bugs</a></li>
+            <li><a asp-controller="Home" asp-action="EditBug" asp-route-id="@Model.Bug.Id">Edit Bug</a></li>
+            <li><a asp-controller="Home" asp-action="File" asp-route-id="@Model.Bug.Id">Add File</a></li>
+            <li><a asp-controller="Home" asp-action="Log" asp-route-id="@Model.Bug.Id">Log</a></li>
+            <li><a asp-controller="Home" asp-action="Comments" asp-route-id="@Model.Bug.Id">Comments</a></li>
+            <li><a asp-controller="Home" asp-action="DeleteBug" asp-route-id="@Model.Bug.Id">Delete Bug</a></li>
+        </ul>
+    </div>
+</div>

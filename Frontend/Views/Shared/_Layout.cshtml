@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" href="~/css/site.css" />-->
+    <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="~/css/layout.css" />
+    <link rel="stylesheet" href="~/css/log.css" />
+    <link rel="stylesheet" href="~/css/survey.css" />
+    <script src="https://kit.fontawesome.com/bae93b56a8.js" crossorigin="anonymous"></script>
+    <link runat="server" rel="shortcut icon" type="image/x-icon" href="~/bugs-solid.ico">
+    <link runat="server" rel="icon" type="image/ico" href="~/bugs-solid.ico">
+    <!--<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="navul">
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <li><a asp-controller="Survey" asp-action="Statistics" class="disabled">Dashboard</a></li>
+                    <li><a asp-controller="Home" asp-action="Bugs" class="disabled">Bugs</a></li>
+                    <li><a asp-controller="Survey" asp-action="ProductRoadmaps" class="disabled">Product Roadmap</a></li>
+                    <li><a asp-controller="Survey" asp-action="ReleasePlanning" class="disabled">Release Planning</a></li>
+                }
+                else
+                {
+                    <li>
+                        <a asp-controller="Survey" asp-action="Statistics" class="
+                           @(ViewContext.RouteData.Values["Action"].ToString() == "Statistics" ? "active" : "")">Dashboard</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Bugs" class="
+                           @(ViewContext.RouteData.Values["Action"].ToString() == "Bugs" ||
+                            ViewContext.RouteData.Values["Action"].ToString() == "Bug" ||
+                            ViewContext.RouteData.Values["Action"].ToString() == "Comments" ||
+                            ViewContext.RouteData.Values["Action"].ToString() == "EditBug" ||
+                            ViewContext.RouteData.Values["Action"].ToString() == "File" ||
+                            ViewContext.RouteData.Values["Action"].ToString() == "Log" ||
+                            ViewContext.RouteData.Values["Action"].ToString() == "NewBug" ||
+                            ViewContext.RouteData.Values["Action"].ToString() == "NewCustomer" ||
+                            ViewContext.RouteData.Values["Action"].ToString() == "NewProduct"
+                        ? "active" : "")">Bugs</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Survey" asp-action="ProductRoadMaps" class="
+                           @(ViewContext.RouteData.Values["Action"].ToString() == "ProductRoadMaps" ||
+                            ViewContext.RouteData.Values["Action"].ToString() == "ProductRoadmap" ||
+                            ViewContext.RouteData.Values["Action"].ToString() == "NewTask"
+                        ? "active" : "")">Product Roadmap</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Survey" asp-action="ReleasePlanning" class="
+                           @(ViewContext.RouteData.Values["Action"].ToString() == "ReleasePlanning" ||
+                            ViewContext.RouteData.Values["Action"].ToString() == "Release"
+                        ? "active" : "")">Release Planning</a>
+                    </li>
+                }
+
+
+                <li class="dropdownli">
+                    <div class="dropdownwrapper">
+                        <i class='fas fa-user-alt'></i>
+                        <div class="dropdowncontent">
+                            <ul>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li><a asp-controller="Log" asp-action="LogOut">Log Out</a></li>
+                                    <li><a asp-controller="Log" asp-action="Update">Update User</a></li>
+                                }
+                                else
+                                {
+                                    <li><a asp-controller="Log" asp-action="LogIn">Log In</a></li>
+                                    <li><a asp-controller="Log" asp-action="Register">Register</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2022 - BugTracker
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

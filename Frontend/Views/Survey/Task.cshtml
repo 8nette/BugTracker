@@ -1,0 +1,44 @@
+﻿@model TaskModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="task">
+    <div class="greenwrapper">
+        <h1>@Model.Task.Title</h1>
+
+        @if (ViewBag.ReturnMessage != null)
+        {
+            <p class="red">@ViewBag.ReturnMessage</p>
+        }
+
+        <table>
+            <tr>
+                <td>Start</td>
+                <td>@Model.Task.Start.ToString("dd/MM/yyyy")</td>
+            </tr>
+            <tr>
+                <td>End</td>
+                <td>@Model.Task.End.ToString("dd/MM/yyyy")</td>
+            </tr>
+            <tr>
+                <td>Bugs</td>
+                <td>
+                    @foreach (Backend.Models.Bug bug in Model.Task.TaskBugs)
+                    {
+                        <a>@bug.Title</a>
+                    }
+                </td>
+            </tr>
+        </table>
+
+        <div class="buttons">
+            <ul>
+                <li><a asp-controller="Survey" asp-action="EditTask" asp-route-id="@Model.Task.Id">Edit Task</a></li>
+                <li><a asp-controller="Survey" asp-action="DeleteTask" asp-route-id="@Model.Task.Id">Delete Task</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+}

@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+@section scripts {
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>google.charts.load("current", { packages: ["corechart"] });</script>
+    <script src="@Url.Content("~/js/overallCompletionStats.js")"></script>
+    <script src="@Url.Content("~/js/overallPriorityStats.js")"></script>
+    <script src="@Url.Content("~/js/currentOpensStats.js")"></script>
+    <script src="@Url.Content("~/js/openAgesStats.js")"></script>
+    <script src="@Url.Content("~/js/averageDefectAge.js")"></script>
+    <script src="@Url.Content("~/js/taskOpenBugStats.js")"></script>
+    <script src="@Url.Content("~/js/submittedOpenClosedStats.js")"></script>
+    <script src="@Url.Content("~/js/developerProductivityStats.js")"></script>
+    <script src="@Url.Content("~/js/areaBugsStats.js")"></script>
+    <script></script>
+}
+
+<div class="statistics">
+    <div id="overallCompletion"></div>
+    <div id="overallPriority"></div>
+    <div id="currentOpen"></div>
+    <div id="openAges"></div>
+    <div id="averageDefectAge"></div>
+    <div id="taskOpenBugs"></div>
+    <div id="submittedOpenClosed"></div>
+    <div id="developerProductivity0"></div>
+    <div id="developerProductivity1"></div>
+    <div id="developerProductivity2"></div>
+    <div id="developerProductivity3"></div>
+    <div id="areaBugs"></div>
+</div>

@@ -1,0 +1,140 @@
+﻿main .login {
+    min-height: 90vh;
+    color: var(--Black);
+    padding: 8em 0 8em 0;
+}
+
+main .login .greenwrapper {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+}
+
+main .login h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .login label {
+    display: block;
+}
+
+main .login input {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+}
+
+main .login input[type=text] {
+    width: 20em;
+}
+
+main .login input[type=submit] {
+    margin: 2em 0 0 0;
+    padding: 0.5em;
+}
+
+main .login input[type=submit]:hover {
+    background-color: var(--LightGreen);
+}
+
+main .register {
+    min-height: 90vh;
+    color: var(--Black);
+    padding: 8em 0 8em 0;
+}
+
+main .register .greenwrapper {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+}
+
+main .register h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .register label {
+    display: block;
+}
+
+main .register input {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+}
+
+main .register input[type=text] {
+    width: 20em;
+}
+
+main .register input[type=submit] {
+    margin: 2em 0 0 0;
+    padding: 0.5em;
+}
+
+main .register input[type=submit]:hover {
+    background-color: var(--LightGreen);
+}
+
+main .updateDeveloper {
+    min-height: 90vh;
+    color: var(--Black);
+    padding: 8em 0 8em 0;
+}
+
+main .updateDeveloper .greenwrapper {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+}
+
+main .updateDeveloper h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .updateDeveloper label {
+    display: block;
+}
+
+main .updateDeveloper input {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+}
+
+main .updateDeveloper input[type=text] {
+    width: 20em;
+}
+
+main .updateDeveloper input[type=submit] {
+    margin: 2em 0 0 0;
+    padding: 0.5em;
+}
+
+main .updateDeveloper input[type=submit]:hover {
+    background-color: var(--LightGreen);
+}

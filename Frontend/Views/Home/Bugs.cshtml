@@ -1,0 +1,272 @@
+﻿@model BugsModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="bugs">
+    <div class="buglist">
+        @if (ViewBag.ReturnMessage != null)
+        {
+            <p class="red">@ViewBag.ReturnMessage</p>
+        }
+
+        <div class="buttons">
+            <ul>
+                <li><a asp-controller="Home" asp-action="NewBug">New Bug</a></li>
+                <li><a asp-controller="Home" asp-action="NewProduct">New Product</a></li>
+                <li><a asp-controller="Home" asp-action="NewCustomer">New Customer</a></li>
+            </ul>
+        </div>
+
+        <div class="searchbar">
+            <h3>Search</h3>
+            <form asp-controller="Home" asp-action="Bugs">
+                <div class="search">
+                    <label asp-for="Title">Title</label>
+                    <input asp-for="Title" />
+                </div>
+
+                <div class="search">
+                    <label asp-for="Area">Area</label>
+                    @Html.DropDownListFor(m => m.Area, new List<SelectListItem>()
+                       {
+                           new SelectListItem("UI", "UI"),
+                           new SelectListItem("DB", "DB"),
+                           new SelectListItem("Documentation", "Documentation"),
+                           new SelectListItem("Backend", "Backend"),
+                           new SelectListItem("Frontend", "Frontend"),
+                           new SelectListItem("Security", "Security")
+                       }, "Select the programming area of the bug")
+                </div>
+
+                <div class="search">
+                    <label asp-for="Category">Category</label>
+                    @Html.DropDownListFor(m => m.Category, new List<SelectListItem>()
+                       {
+                           new SelectListItem("Bug", "Bug"),
+                           new SelectListItem("Feature", "Feature"),
+                           new SelectListItem("Inquiry", "Inquiry")
+                       }, "Select the programming category of the bug")
+                </div>
+
+                <div class="search">
+                    <label asp-for="Product">Product</label>
+                    @Html.TextBoxFor(m => m.Product, htmlAttributes: new { @id = "products" })
+                </div>
+
+                <div class="search">
+                    <label asp-for="Release">Release</label>
+                    <input asp-for="Release" />
+                </div>
+                
+                <div class="search">
+                    <label asp-for="Developers">Developers</label>
+                    @Html.TextBoxFor(m => m.Developers, htmlAttributes: new { @id = "developers" })
+                </div>
+
+                <div class="search">
+                    <label asp-for="Customers">Customers</label>
+                    @Html.TextBoxFor(m => m.Customers, htmlAttributes: new { @id = "customers" })
+                </div>
+
+                <div class="search">
+                    <label asp-for="Resolution">Resolution</label>
+                    @Html.DropDownListFor(m => m.Resolution, new List<SelectListItem>()
+                        {
+                            new SelectListItem("Open", "Open"),
+                            new SelectListItem("Cannot Reproduce", "NotRep"),
+                            new SelectListItem("Will not Fix", "NotFix"),
+                            new SelectListItem("Ready for Testing", "Test"),
+                            new SelectListItem("Resolved", "Resolved"),
+                            new SelectListItem("Closed", "Closed")
+                        }, "Select the status of the bug")
+                </div>
+                
+                <div class="search">
+                    <label asp-for="Priority">Priority</label>
+                    @Html.DropDownListFor(m => m.Priority, new List<SelectListItem>()
+                        {
+                            new SelectListItem("Critical", "Critical"),
+                            new SelectListItem("High", "High"),
+                            new SelectListItem("Normal", "Normal"),
+                            new SelectListItem("Low", "Low")
+                        }, "Select the priority of the bug")
+                </div>
+                
+                <div class="search">
+                    <label asp-for="CreatedBefore">Created Before</label>
+                    <input asp-for="CreatedBefore" type="datetime" />
+                </div>
+                
+                <div class="search">
+                    <label asp-for="CreatedAfter">Created After</label>
+                    <input asp-for="CreatedAfter" type="datetime" />
+                </div>
+                
+                <div class="search">
+                    <label asp-for="CreatedAt">Created At</label>
+                    <input asp-for="CreatedAt" type="datetime" />
+                </div>
+                
+                <input type="submit" value="Search" />
+            </form>
+        </div>
+
+        <div class="table">
+            <table id="bugtable">
+                <tr>
+                    <th>Title</th>
+                    <th>Created</th>
+                    <th>Priority</th>
+                    <th>Area</th>
+                    <th>Category</th>
+                    <th>Product</th>
+                    <th>Resolution</th>
+                </tr>
+
+                @foreach (Backend.Models.Bug bug in Model.Bugs)
+                {
+                    <tr class="bugtabletr" onclick="location.href = '@(Url.Action("Bug", "Home", new { id = bug.Id }))'">
+                        <td>@bug.Title</td>
+                        <td>@bug.Created</td>
+                        <td>@bug.Priority</td>
+                        <td>@bug.Area</td>
+                        <td>@bug.Category</td>
+                        <td>@bug.Product</td>
+                        <td>@bug.Resolution</td>
+                    </tr>
+                }
+
+                @if (Model.Bugs.Count() == 0)
+                {
+                    <tr class="bugtabletr">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#bugtable').after('<div id="nav"></div>');
+
+            var rowsShown = 7;
+            var rowsTotal = $('.bugtabletr').length;
+            var numPages = Math.ceil(rowsTotal / rowsShown);
+
+            for (i = 0; i < numPages; i++) {
+                var pageNum = i + 1;
+                $('#nav').append('<a href="#" rel="' + i + '">' + pageNum + '</a> ');
+            }
+
+            $('.bugtabletr').hide();
+            $('.bugtabletr').slice(0, rowsShown).show();
+            $('#nav a:first').addClass('active');
+
+            $('#nav a').bind('click', function () {
+                $('#nav a').removeClass('active');
+                $(this).addClass('active');
+                var currPage = $(this).attr('rel');
+                var startItem = currPage * rowsShown;
+                var endItem = startItem + rowsShown;
+                $('.bugtabletr').css('opacity', '0.0').hide().slice(startItem, endItem).
+                    css('display', 'table-row').animate({ opacity: 1 }, 300);
+            });
+        })
+
+        $(document).ready(function () {
+            $("#products").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Home/GetJsonProducts",
+                        type: "POST",
+                        dataType: "json",
+                        data: { keyword: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        }
+                    })
+                }
+            });
+        })
+
+        $(document).ready(function () {
+            $("#developers").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Home/GetJsonDevelopers",
+                        type: "POST",
+                        dataType: "json",
+                        data: { keyword: extractLast(request.term) },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        }
+                    })
+                },
+                focus: function () {
+                    return false;
+                },
+                select: function (event, ui) {
+                    var terms = split(this.value);
+                    terms.pop();
+                    terms.push(ui.item.value);
+                    terms.push("");
+                    this.value = terms.join(", ");
+                    return false;
+                }
+            });
+        })
+
+        $(document).ready(function () {
+            $("#customers").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Home/GetJsonCustomers",
+                        type: "POST",
+                        dataType: "json",
+                        data: { keyword: extractLast(request.term) },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        }
+                    })
+                },
+                focus: function () {
+                    return false;
+                },
+                select: function (event, ui) {
+                    var terms = split(this.value);
+                    terms.pop();
+                    terms.push(ui.item.value);
+                    terms.push("");
+                    this.value = terms.join(", ");
+                    return false;
+                }
+            });
+        })
+
+        function split(val) {
+            return val.split(/,\s*/);
+        }
+
+        function extractLast(term) {
+            return split(term).pop();
+        }
+    </script>
+}

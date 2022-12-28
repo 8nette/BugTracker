@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Backend.Models.ProductAndReleases>
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="releaseplanning">
+    <h1>Releases</h1>
+
+    @foreach (Backend.Models.ProductAndReleases productreleases in Model)
+    {
+        <h3>@productreleases.Product.Name</h3>
+
+        <ul>
+            @foreach (string release in productreleases.Releases)
+            {
+                <li onclick="location.href = '@(Url.Action("Release", "Survey",
+                    new { id = productreleases.Product.Id, release = release }))'">@release</li>
+            }
+        </ul>
+    }
+</div>

@@ -1,0 +1,118 @@
+﻿<Properties StartupConfiguration="{F178790F-0BA8-4453-8D7F-2A79E4ADF567}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Frontend/Program.cs">
+    <Files>
+      <File FileName="Backend/Models/Customer.cs" Line="13" Column="42" />
+      <File FileName="Backend/Models/Developer.cs" />
+      <File FileName="Backend/Models/Product.cs" />
+      <File FileName="Backend/Models/Bug.cs" />
+      <File FileName="Backend/Models/Log.cs" />
+      <File FileName="Backend/Models/File.cs" />
+      <File FileName="Frontend/Startup.cs" />
+      <File FileName="Frontend/Program.cs" Line="16" Column="1" />
+      <File FileName="Frontend/appsettings.json" />
+      <File FileName="Frontend/Helpers/AppSettings.cs" />
+      <File FileName="Frontend/Views/Home/Index.cshtml" />
+      <File FileName="Frontend/Views/_ViewStart.cshtml" />
+      <File FileName="Frontend/Views/_ViewImports.cshtml" />
+      <File FileName="Frontend/Views/Shared/_Layout.cshtml" />
+      <File FileName="Frontend/wwwroot/css/site.css" />
+      <File FileName="Frontend/Controllers/LogController.cs" />
+      <File FileName="Frontend/Controllers/HomeController.cs" />
+      <File FileName="Frontend/Views/Log/LogIn.cshtml" />
+      <File FileName="Frontend/Models/AuthenticateModel.cs" />
+      <File FileName="Frontend/Views/Log/Register.cshtml" />
+      <File FileName="Backend/Services/UserService.cs" />
+      <File FileName="Backend/DB/Database.cs" />
+      <File FileName="Backend/DB/IDatabase.cs" />
+      <File FileName="Backend/Helpers/ExtensionMethods.cs" />
+      <File FileName="Frontend/Models/RegisterModel.cs" />
+      <File FileName="Frontend/Views/Log/Update.cshtml" />
+      <File FileName="Frontend/wwwroot/js/site.js" />
+      <File FileName="Frontend/wwwroot/lib/jquery/dist/jquery.js" />
+      <File FileName="Frontend/Views/Home/Bugs.cshtml" />
+      <File FileName="Backend/Services/BugService.cs" />
+      <File FileName="Frontend/Views/Home/NewBug.cshtml" />
+      <File FileName="Frontend/Models/NewBugModel.cs" />
+      <File FileName="Frontend/Models/NewProductModel.cs" />
+      <File FileName="Frontend/Views/Home/NewCustomer.cshtml" />
+      <File FileName="Frontend/Models/NewCustomerModel.cs" />
+      <File FileName="Frontend/Views/Home/Bug.cshtml" />
+      <File FileName="Frontend/Views/Home/EditBug.cshtml" />
+      <File FileName="Frontend/Models/EditBugModel.cs" />
+      <File FileName="Frontend/Views/Home/Log.cshtml" />
+      <File FileName="Frontend/Models/BugModel.cs" />
+      <File FileName="Frontend/Views/Home/File.cshtml" />
+      <File FileName="Frontend/Models/IdModel.cs" />
+      <File FileName="Backend/Models/Comment.cs" />
+      <File FileName="Frontend/Views/Home/Comments.cshtml" />
+      <File FileName="Frontend/Models/CommentsModel.cs" />
+      <File FileName="Frontend/Controllers/SurveyController.cs" />
+      <File FileName="Frontend/Views/Survey/ProductRoadmap.cshtml" />
+      <File FileName="Frontend/Models/RoadmapModel.cs" />
+      <File FileName="Backend/Models/Task.cs" />
+      <File FileName="Frontend/Views/Survey/ProductRoadmaps.cshtml" />
+      <File FileName="Frontend/Views/Survey/NewTask.cshtml" />
+      <File FileName="Frontend/Models/NewTaskModel.cs" />
+      <File FileName="Frontend/wwwroot/css/layout.css" />
+      <File FileName="Frontend/wwwroot/css/log.css" />
+      <File FileName="Frontend/wwwroot/css/home.css" />
+      <File FileName="Frontend/wwwroot/css/survey.css" />
+      <File FileName="Backend/Services/SurveyService.cs" />
+      <File FileName="Backend/Models/DateAndTasks.cs" />
+      <File FileName="Backend/Models/SimpleTask.cs" />
+      <File FileName="Backend/Models/Statistics.cs" />
+      <File FileName="Frontend/Views/Survey/Statistics.cshtml" />
+      <File FileName="Frontend/wwwroot/js/overallCompletionStats.js" />
+      <File FileName="Frontend/wwwroot/js/overallPriorityStats.js" />
+      <File FileName="Frontend/wwwroot/js/currentOpensStats.js" />
+      <File FileName="Frontend/wwwroot/js/openAgesStats.js" />
+      <File FileName="Frontend/wwwroot/js/averageDefectAge.js" />
+      <File FileName="Frontend/wwwroot/js/taskOpenBugStats.js" />
+      <File FileName="Frontend/wwwroot/js/submittedOpenClosedStats.js" />
+      <File FileName="Frontend/wwwroot/js/developerProductivityStats.js" />
+      <File FileName="Frontend/wwwroot/js/areaBugsStats.js" />
+      <File FileName="Backend/Models/BugSearch.cs" />
+      <File FileName="Frontend/Models/BugsModel.cs" />
+      <File FileName="Backend/Models/ProductAndReleases.cs" />
+      <File FileName="Frontend/Views/Survey/ReleasePlanning.cshtml" />
+      <File FileName="Backend/Models/OpenReleaseBugs.cs" />
+      <File FileName="Frontend/Models/ReleaseModel.cs" />
+      <File FileName="Frontend/Views/Survey/Release.cshtml" />
+      <File FileName="Backend/Models/ReleasePlan.cs" />
+      <File FileName="Frontend/Models/TaskModel.cs" />
+      <File FileName="Frontend/Views/Survey/Task.cshtml" />
+      <File FileName="Frontend/Models/EditTaskModel.cs" />
+      <File FileName="Frontend/Views/Survey/EditTask.cshtml" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BugTracker2" expanded="True">
+            <Node name="Backend" expanded="True">
+              <Node name="DB" expanded="True" />
+              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="Frontend" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+                <Node name="Survey" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+              </Node>
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Frontend PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

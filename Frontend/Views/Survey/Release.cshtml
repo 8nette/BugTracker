@@ -1,0 +1,137 @@
+﻿@model ReleaseModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="release">
+    <h1>Release Planning for Release @Model.release under Product @Model.product.Name</h1>
+
+    <div class="releaseplan">
+        <table>
+            <tr>
+                <td>From</td>
+                <td>@Model.releasePlan.DateStart.ToString("dd/MM/yyyy")</td>
+            </tr>
+            <tr>
+                <td>To</td>
+                <td>@Model.releasePlan.DateEnd.ToString("dd/MM/yyyy")</td>
+            </tr>
+            <tr>
+                <td>Workload</td>
+                <td>@Model.releasePlan.Workload</td>
+            </tr>
+            <tr>
+                <td>Objectives</td>
+                <td>@Model.releasePlan.Objectives</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="features">
+        <h3>Release Features</h3>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Area</th>
+                <th>Developers</th>
+                <th>Priority</th>
+                <th>Resolution</th>
+            </tr>
+
+            @foreach (Backend.Models.Bug feature in Model.features)
+            {
+                <tr>
+                    <td>@feature.Title</td>
+                    <td>@feature.Area</td>
+                    <td>@feature.Developers</td>
+                    <td>@feature.Priority</td>
+                    <td>
+                        <p class="res">@feature.Resolution</p>
+                    </td>
+                </tr>
+            }
+
+            @if (Model.bugs.Count() == 0)
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="buglist">
+        <h3>Release Bugs</h3>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Priority</th>
+                <th>Resolution</th>
+            </tr>
+
+            @foreach (Backend.Models.Bug bug in Model.bugs)
+            {
+                <tr>
+                    <td>@bug.Title</td>
+                    <td>@bug.Priority</td>
+                    <td>
+                        <p class="res">@bug.Resolution</p>
+                    </td>
+                </tr>
+            }
+
+            @if (Model.bugs.Count() == 0)
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="tasks">
+        <h3>Tasks with a Release Bug</h3>
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Release Bugs</th>
+            </tr>
+
+            @if (Model.tasks.Count() == 0)
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+
+            @foreach (Backend.Models.Task task in Model.tasks)
+            {
+                <tr>
+                    <td>@task.Title</td>
+                    <td>@task.Start.ToString("dd/MM/yyyy")</td>
+                    <td>@task.End.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <ul>
+                            @foreach (Backend.Models.Bug bug in task.TaskBugs)
+                            {
+                                <li class="bug">@bug.Title</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </table>
+     </div>
+</div>

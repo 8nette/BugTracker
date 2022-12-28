@@ -1,0 +1,62 @@
+﻿@model CommentsModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="comments">
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="greenwrapper">
+            <p>To see the bugs, please log in first</p>
+        </div>
+    }
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="commentlist">
+            @if (ViewBag.ReturnMessage != null)
+            {
+                <p class="red">@ViewBag.ReturnMessage</p>
+            }
+
+            <h1>Comments for @Model.BugTitle</h1>
+
+            <div class="form">
+                <form asp-controller="Home" asp-action="CreateComment" method="post">
+                    <input type="hidden" asp-for="Comment.BugId" />
+                    @Html.TextAreaFor(comment => comment.Comment._Comment)
+                    <input type="submit" value="create comment" />
+                </form>
+                <a asp-controller="Home" asp-action="Bug" asp-route-id="@Model.Comment.BugId">Back to Bug</a>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Created At</th>
+                    <th>Created By</th>
+                    <th>Comment</th>
+                </tr>
+
+                @foreach ((string, Backend.Models.Comment) comment in Model.Comments)
+                {
+                    <tr>
+                        <td>@comment.Item2.Created</td>
+                        <td>@comment.Item1</td>
+                        <td>@comment.Item2._Comment</td>
+                    </tr>
+                }
+
+                @if (Model.Comments.Count() == 0)
+                {
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+</div>

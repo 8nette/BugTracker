@@ -1,0 +1,10 @@
+/Users/anette/Projects/BugTracker2/Backend/bin/Debug/netstandard2.1/Backend.deps.json
+/Users/anette/Projects/BugTracker2/Backend/bin/Debug/netstandard2.1/Backend.dll
+/Users/anette/Projects/BugTracker2/Backend/bin/Debug/netstandard2.1/Backend.pdb
+/Users/anette/Projects/BugTracker2/Backend/obj/Debug/netstandard2.1/Backend.csproj.AssemblyReference.cache
+/Users/anette/Projects/BugTracker2/Backend/obj/Debug/netstandard2.1/Backend.GeneratedMSBuildEditorConfig.editorconfig
+/Users/anette/Projects/BugTracker2/Backend/obj/Debug/netstandard2.1/Backend.AssemblyInfoInputs.cache
+/Users/anette/Projects/BugTracker2/Backend/obj/Debug/netstandard2.1/Backend.AssemblyInfo.cs
+/Users/anette/Projects/BugTracker2/Backend/obj/Debug/netstandard2.1/Backend.csproj.CoreCompileInputs.cache
+/Users/anette/Projects/BugTracker2/Backend/obj/Debug/netstandard2.1/Backend.dll
+/Users/anette/Projects/BugTracker2/Backend/obj/Debug/netstandard2.1/Backend.pdb

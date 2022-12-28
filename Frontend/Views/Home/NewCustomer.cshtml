@@ -1,0 +1,33 @@
+﻿@model NewCustomerModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="newcustomer">
+    <div class="greenwrapper">
+        <h1>Create New Customer</h1>
+
+        @if (ViewBag.ReturnMessage != null)
+        {
+            <p class="red">@ViewBag.ReturnMessage</p>
+        }
+
+        <div class="form">
+            <form action="NewCustomer" method="post">
+                <label asp-for="Name">Name</label>
+                <input asp-for="Name" />
+
+                <label asp-for="Company">Company</label>
+                <input asp-for="Company" />
+
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" />
+
+                <input type="submit" value="Create" />
+
+                <a asp-controller="Home" asp-action="Bugs">Back to bugs</a>
+            </form>
+        </div>
+    </div>
+</div>

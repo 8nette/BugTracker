@@ -1,0 +1,178 @@
+﻿@model Backend.Models.Bug
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="editbug">
+    <div class="greenwrapper">
+        <h1>Update Bug</h1>
+
+        @if (ViewBag.ReturnMessage != null)
+        {
+            <p class="red">@ViewBag.ReturnMessage</p>
+        }
+
+        <div class="form">
+            <form action="EditBug" method="post">
+                <input type="hidden" asp-for="Id" />
+
+                <label asp-for="Title">Title</label>
+                <input asp-for="Title" />
+
+                <label asp-for="Description">Description</label>
+                @Html.TextAreaFor(bug => bug.Description)
+
+                <label asp-for="Area">Area</label>
+                @Html.DropDownListFor(bug => bug.Area, new List<SelectListItem>()
+                   {
+                       new SelectListItem("UI", "UI"),
+                       new SelectListItem("DB", "DB"),
+                       new SelectListItem("Documentation", "Documentation"),
+                       new SelectListItem("Backend", "Backend"),
+                       new SelectListItem("Frontend", "Frontend"),
+                       new SelectListItem("Security", "Security")
+                   }, "Select the programming area of the bug")
+
+                <label asp-for="Category">Category</label>
+                @Html.DropDownListFor(bug => bug.Category, new List<SelectListItem>()
+                   {
+                       new SelectListItem("Bug", "Bug"),
+                       new SelectListItem("Feature", "Feature"),
+                       new SelectListItem("Inquiry", "Inquiry")
+                   }, "Select the programming category of the bug")
+
+                <label asp-for="Product">Product</label>
+                @Html.TextBoxFor(model => model.Product, htmlAttributes: new { @id = "products" })
+
+                <label asp-for="Release">Release</label>
+                <input asp-for="Release" />
+
+                <label asp-for="Developers">Developers</label>
+                @Html.TextBoxFor(model => model.Developers, htmlAttributes: new { @id = "developers" })
+
+                <label asp-for="Customers">Customers</label>
+                @Html.TextBoxFor(model => model.Customers, htmlAttributes: new { @id = "customers" })
+
+                <label asp-for="Resolution">Resolution</label>
+                @Html.DropDownListFor(bug => bug.Resolution, new List<SelectListItem>()
+                    {
+                        new SelectListItem("Open", "Open"),
+                        new SelectListItem("Cannot Reproduce", "NotRep"),
+                        new SelectListItem("Will not Fix", "NotFix"),
+                        new SelectListItem("Ready for Testing", "Test"),
+                        new SelectListItem("Resolved", "Resolved"),
+                        new SelectListItem("Closed", "Closed")
+                    }, "Select the status of the bug")
+
+                <label asp-for="Priority">Priority</label>
+                @Html.DropDownListFor(bug => bug.Priority, new List<SelectListItem>()
+                    {
+                        new SelectListItem("Critical", "Critical"),
+                        new SelectListItem("High", "High"),
+                        new SelectListItem("Normal", "Normal"),
+                        new SelectListItem("Low", "Low")
+                    }, "Select the priority of the bug")
+
+                <input type="submit" value="Update" />
+
+                <a asp-controller="Home" asp-action="Bug" asp-route-id="@Model.Id">Back to Bug</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#products").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Home/GetJsonProducts",
+                        type: "POST",
+                        dataType: "json",
+                        data: { keyword: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        }
+                    })
+                }
+            });
+        })
+
+        $(document).ready(function () {
+            $("#developers").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Home/GetJsonDevelopers",
+                        type: "POST",
+                        dataType: "json",
+                        data: { keyword: extractLast(request.term) },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        }
+                    })
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+                    var terms = split(this.value);
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push(ui.item.value);
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push("");
+                    this.value = terms.join(", ");
+                    return false;
+                }
+            });
+        })
+
+        $(document).ready(function () {
+            $("#customers").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Home/GetJsonCustomers",
+                        type: "POST",
+                        dataType: "json",
+                        data: { keyword: extractLast(request.term) },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        }
+                    })
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+                    var terms = split(this.value);
+                    terms.pop();
+                    terms.push(ui.item.value);
+                    terms.push("");
+                    this.value = terms.join(", ");
+                    return false;
+                }
+            });
+        })
+
+        function split(val) {
+            return val.split(/,\s*/);
+        }
+
+        function extractLast(term) {
+            return split(term).pop();
+        }
+    </script>
+}

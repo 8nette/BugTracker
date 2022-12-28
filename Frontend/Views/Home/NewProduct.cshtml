@@ -1,0 +1,27 @@
+﻿@model NewProductModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="newproduct">
+    <div class="greenwrapper">
+        <h1>Create New Product</h1>
+
+        @if (ViewBag.ReturnMessage != null)
+        {
+            <p class="red">@ViewBag.ReturnMessage</p>
+        }
+
+        <div class="form">
+            <form action="NewProduct" method="post">
+                <label asp-for="Name">Name</label>
+                <input asp-for="Name" />
+
+                <input type="submit" value="Create" />
+
+                <a asp-controller="Home" asp-action="Bugs">Back to bugs</a>
+            </form>
+        </div>
+    </div>
+</div>

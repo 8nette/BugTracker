@@ -1,0 +1,38 @@
+﻿@model LogModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="log">
+    <h1>Log for @Model.bugTitle</h1>
+
+    <table>
+        <tr>
+            <th>Date and Time</th>
+            <th>Resolution</th>
+        </tr>
+
+        @if (Model.logs.Count() == 0)
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+
+        @foreach (Backend.Models.Log logEntry in Model.logs)
+            {
+                <tr>
+                    <td>@logEntry.DateAndTime</td>
+                    <td>@logEntry.Resolution</td>
+                </tr>
+            }
+    </table>
+
+    <div class="buttons">
+        <ul>
+            <li><a asp-controller="Home" asp-action="Bug" asp-route-id="@Model.bugId">Back to Bug</a></li>
+        </ul>
+    </div>
+</div>

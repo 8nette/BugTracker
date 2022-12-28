@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Backend.Models.Product>
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="products">
+    <h1>Products</h1>
+
+    <table>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td>There are no products to show</td>
+            </tr>
+        }
+
+        @foreach (Backend.Models.Product product in Model)
+        {
+            <tr onclick="location.href = '@(Url.Action("ProductRoadmap", "Survey", new { id = product.Id }))'">
+                <td>@product.Name</td>
+            </tr>
+        }
+    </table>
+</div>

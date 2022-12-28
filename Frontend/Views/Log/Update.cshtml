@@ -1,0 +1,31 @@
+﻿@model UpdateDeveloperModel
+
+@{
+    ViewData["Title"] = "Bug Tracker";
+}
+
+<div class="updateDeveloper">
+    <div class="greenwrapper">
+        <h1>Update User Information for @ViewData["Username"]</h1>
+
+        @if (ViewBag.ReturnMessage != null)
+        {
+            <p class="red">@ViewBag.ReturnMessage</p>
+        }
+
+        <div class="form">
+            <form action="Update" method="post">
+                <label asp-for="Name">Name</label>
+                <input asp-for="Name" />
+
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" />
+
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" />
+
+                <input type="submit" value="Update" />
+            </form>
+        </div>
+    </div>
+</div>

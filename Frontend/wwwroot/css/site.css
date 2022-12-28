@@ -1,0 +1,1053 @@
+﻿:root {
+    --DarkGreen: #608f82;
+    --LightGreen: #89d6c0;
+    --Black: #3a3d3b;
+    --White: #f5f5f5;
+    --Grey: #ebf2f0;
+    --Grey2: #e1ebe8;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter !important;
+}
+
+.container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0;
+    width: 100%;
+}
+
+.text-muted {
+    color: white !important;
+}
+
+header {
+    padding: 2em 0 1em 0;
+    background-color: var(--DarkGreen);
+    margin: 0 0 0em 0;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 1em;
+    margin-left: 1em;
+}
+
+header nav ul li a:hover {
+    text-decoration: none;
+    background-color: var(--LightGreen);
+    color: white;
+    border-radius: 5px;
+}
+
+header nav ul li a.disabled {
+    cursor: not-allowed !important;
+    color: var(--Grey2) !important;
+    pointer-events: none !important;
+    text-decoration: none !important;
+}
+
+header nav ul li a.disabled:hover {
+    text-decoration: none !important;
+}
+
+.dropdownli {
+    position: absolute;
+    right: 3.5em !important;
+}
+
+.dropdownwrapper {
+    right: 0;
+    border-radius: 5px;
+    color: white;
+}
+
+.dropdowncontent {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: var(--LightGreen);
+    border-radius: 5px;
+    right: 0;
+    width: 8em;
+    text-align: center;
+}
+
+.dropdowncontent ul {
+    padding-inline-start: 0;
+    margin-inline-start: 0;
+}
+
+.dropdowncontent ul li {
+    display: block;
+}
+
+.dropdowncontent ul li a {
+    margin-left: 0;
+    display: inline-block;
+    color: white;
+}
+
+.dropdowncontent ul li a:hover {
+    color: var(--Black);
+}
+
+.dropdownwrapper:hover .dropdowncontent {
+    display: block;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    clear: both;
+    position: relative;
+    padding: 1.7em 0 0 0;
+    height: 5em;
+    background-color: var(--DarkGreen);
+    color: white;
+}
+
+main .login {
+    min-height: 90vh;
+    color: var(--Black);
+    padding: 8em 0 8em 0;
+}
+
+main .login .greenwrapper {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+}
+
+main .login h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .login label {
+    display: block;
+}
+
+main .login input {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+}
+
+main .login input[type=text] {
+    width: 20em;
+}
+
+main .login input[type=submit] {
+    margin: 2em 0 0 0;
+    padding: 0.5em;
+}
+
+main .login input[type=submit]:hover {
+    background-color: var(--LightGreen);
+}
+
+main .register {
+    min-height: 90vh;
+    color: var(--Black);
+    padding: 8em 0 8em 0;
+}
+
+main .register .greenwrapper {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+}
+
+main .register h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .register label {
+    display: block;
+}
+
+main .register input {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+}
+
+main .register input[type=text] {
+    width: 20em;
+}
+
+main .register input[type=submit] {
+    margin: 2em 0 0 0;
+    padding: 0.5em;
+}
+
+main .register input[type=submit]:hover {
+    background-color: var(--LightGreen);
+}
+
+main .updateDeveloper {
+    min-height: 90vh;
+    color: var(--Black);
+    padding: 8em 0 8em 0;
+}
+
+main .updateDeveloper .greenwrapper {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+}
+
+main .updateDeveloper h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .updateDeveloper label {
+    display: block;
+}
+
+main .updateDeveloper input {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+}
+
+main .updateDeveloper input[type=text] {
+    width: 20em;
+}
+
+main .updateDeveloper input[type=submit] {
+    margin: 2em 0 0 0;
+    padding: 0.5em;
+}
+
+main .updateDeveloper input[type=submit]:hover {
+    background-color: var(--LightGreen);
+}
+
+main .index {
+    min-height:90vh;
+    color: var(--Black);
+    padding: 8em 0 8em 0;
+    text-align: center;
+    font-weight: lighter;
+}
+
+main .index .greenwrapper {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+}
+
+main .index h1 {
+    font-weight: lighter !important;
+    margin: 0 0 1em 0;
+}
+
+main .index p {
+    margin: 3em 0 2em 0;
+}
+
+main .index a {
+    background-color: var(--DarkGreen);
+    padding: 0.7em;
+    border-radius: 20px;
+    color: white !important;
+    display: inline-block;
+    margin: 0 0.5em 0 0.5em;
+}
+
+main .bugs {
+    min-height: 90vh;
+    color: var(--Black);
+    padding: 8em 0 8em 0;
+    margin: 0;
+}
+
+main .bugs .greenwrapper {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+}
+
+main .bugs h1 {
+    font-weight: lighter !important;
+    margin: 0 0 1em 0;
+}
+
+main .bugs .greenwrapper p {
+    font-weight: lighter !important;
+}
+
+main .buglist {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+}
+
+main .bugs .searchbar {
+    margin: 0 0 0 1em;
+    width: 40%;
+}
+
+main .bugs .searchbar h3 {
+    font-weight: lighter;
+    margin: 0 0 1em 0;
+}
+
+main .bugs .searchbar input {
+    padding: 0.5em;
+    border: none;
+    border-radius: 5px;
+    font-weight: lighter;
+    width: 100%;
+    background-color: var(--DarkGreen);
+    color: white;
+    margin: 0 0 3em 0;
+}
+
+main .buglist .buttons {
+    margin: 0 0 0 1em;
+    padding: 0;
+}
+
+main .buglist .buttons ul {
+    margin: 3em 0 3em 0;
+    padding: 0;
+}
+
+main .buglist .buttons ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+main .buglist .buttons ul li a {
+    padding: 1em;
+    color: white;
+    background-color: var(--DarkGreen);
+    border-radius: 5px;
+    margin: 0 1em 0 0;
+}
+
+main .buglist .buttons ul li a:hover {
+    background-color: var(--LightGreen);
+    text-decoration: none;
+}
+
+main .buglist table {
+    table-layout: fixed;
+    width: 60em;
+    font-weight: lighter;
+    margin: 1em 0 0 0;
+}
+
+main .buglist table tr {
+    border: 10px solid var(--Grey);
+}
+
+main .buglist table tr:hover {
+    background-color: var(--DarkGreen) !important;
+    color: white;
+}
+
+main .buglist table tr:nth-child(1) {
+    pointer-events: none;
+}
+
+main .buglist table tr:nth-child(2n) {
+    //color: var(--DarkGreen);
+    background-color: var(--Grey2);
+}
+
+/*main .buglist table tr:nth-child(1) {
+    background-color: var(--DarkGreen);
+    color: white;
+}*/
+
+main .buglist table th {
+    font-weight: normal;
+}
+
+main .buglist table th, main .buglist table td {
+    padding: 1em 2em;
+    //border: 10px solid var(--Grey);
+    width: 16.6%;
+    overflow: hidden;
+}
+
+main .newbug {
+    margin: 8em auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+    width: 50%;
+}
+
+main .newbug .resolution {
+    background-color: var(--DarkGreen);
+    color: white;
+    padding: 4px;
+    height: 2em;
+    margin: 0 0 1em 0;
+    border-radius: 3px;
+}
+
+main .newbug h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 1em 0 1em 0;
+}
+
+main .newbug a {
+    padding: 0.5em;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    margin: 0 0 1em 20em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+main .newbug a:hover {
+    background-color: var(--LightGreen);
+}
+
+main .newbug label {
+    display: block;
+}
+
+main .newbug input {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+}
+
+main .newbug input[type=text] {
+    width: 100%;
+}
+
+main .newbug textarea {
+    all: unset;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+    width: 100%;
+}
+
+main .newbug select {
+    all: unset;
+    background-color: var(--DarkGreen);
+    color: white;
+    padding: 10px;
+    margin: 0 0 1em 0;
+    border-radius: 3px;
+    display: block;
+}
+
+main .newbug input[type=submit] {
+    margin: 2em 0 0 0;
+    padding: 0.5em;
+    display: inline-block;
+}
+
+main .newbug input[type=submit]:hover {
+    background-color: var(--LightGreen);
+}
+
+.ui-autocomplete {
+    margin: 0;
+    padding: 5px;
+    list-style-type: none;
+    background-color: var(--LightGreen);
+    border-radius: 5px;
+    color: white;
+    width: 500px;
+    max-height: 600px;
+    overflow-y: auto; /* prevent horizontal scrollbar */
+    overflow-x: hidden; /* add padding to account for vertical scrollbar */
+    z-index: 1000 !important;
+}
+
+.ui-autocomplete li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+    background-color: var(--LightGreen);
+    color: white;
+    width: 500px;
+}
+
+.ui-state-focus {
+    color: var(--Grey) !important;
+}
+
+.ui-helper-hidden-accessible {
+    display: none !important;
+}
+
+main .newproduct {
+    margin: 8em auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+    width: 50%;
+}
+
+main .newproduct h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 1em 0 1em 0;
+}
+
+main .newproduct a {
+    padding: 0.5em;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    margin: 0 0 1em 20em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+main .newproduct a:hover {
+    background-color: var(--LightGreen);
+}
+
+main .newproduct label {
+    display: block;
+}
+
+main .newproduct input {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+}
+
+main .newproduct input[type=text] {
+    width: 100%;
+}
+
+main .newproduct input[type=submit] {
+    margin: 2em 0 0 0;
+    padding: 0.5em;
+    display: inline-block;
+}
+
+main .newproduct input[type=submit]:hover {
+    background-color: var(--LightGreen);
+}
+
+main .newcustomer {
+    margin: 8em auto;
+    width: fit-content;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+    width: 50%;
+}
+
+main .newcustomer h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 1em 0 1em 0;
+}
+
+main .newcustomer a {
+    padding: 0.5em;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    margin: 0 0 1em 20em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+main .newcustomer a:hover {
+    background-color: var(--LightGreen);
+}
+
+main .newcustomer label {
+    display: block;
+}
+
+main .newcustomer input {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+}
+
+main .newcustomer input[type=text] {
+    width: 100%;
+}
+
+main .newcustomer input[type=submit] {
+    margin: 2em 0 0 0;
+    padding: 0.5em;
+    display: inline-block;
+}
+
+main .newcustomer input[type=submit]:hover {
+    background-color: var(--LightGreen);
+}
+
+main .bug {
+    margin: 8em auto;
+    width: 75%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+}
+
+main .bug h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .bug table {
+    //border-collapse: separate;
+    //border-spacing: 0 1em;
+    width: 100%;
+    margin: 0 0 2em 0;
+}
+
+main .bug table td {
+    padding: 1em;
+}
+
+main .bug table tr:nth-child(2n+1) {
+    background-color: var(--Grey2);
+}
+
+main .bug td:nth-child(1) {
+    font-weight: normal;
+    width: 30%;
+}
+
+main .bug td:nth-child(2) {
+    width: 70%;
+}
+
+main .bug table a {
+    color: white !important;
+    background-color: var(--LightGreen);
+    padding: 0.5em;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+main .bug table a:hover {
+    text-decoration: none;
+    color: var(--Black) !important;
+}
+
+main .bug .buttons {
+    margin: 2em 0 0 0;
+    padding: 0;
+}
+
+main .bug .buttons ul {
+    margin: 3em 0 3em 0;
+    padding: 0;
+}
+
+main .bug .buttons ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+main .bug .buttons ul li a {
+    padding: 1em;
+    color: white;
+    background-color: var(--DarkGreen);
+    border-radius: 5px;
+    margin: 0 1em 0 0;
+}
+
+main .bug .buttons ul li a:hover {
+    background-color: var(--LightGreen);
+    text-decoration: none;
+}
+
+main .editbug {
+    margin: 8em auto;
+    width: 50%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+    font-weight: lighter;
+}
+
+main .editbug h1 {
+    font-weight: lighter !important;
+    text-align: center;
+}
+
+main .editbug a {
+    padding: 0.5em;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    margin: 0 0 1em 1em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+main .editbug a:hover {
+    background-color: var(--LightGreen);
+}
+
+main .editbug label {
+    display: block;
+}
+
+main .editbug input {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+}
+
+main .editbug input[type=text] {
+    width: 100%;
+}
+
+main .editbug textarea {
+    all: unset;
+    background-color: var(--DarkGreen);
+    color: white;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 0 1em 0;
+    width: 100%;
+}
+
+main .editbug select {
+    all: unset;
+    background-color: var(--DarkGreen);
+    color: white;
+    padding: 10px;
+    margin: 0 0 1em 0;
+    border-radius: 3px;
+    display: block;
+}
+
+main .editbug input[type=submit] {
+    margin: 2em 0 0 0;
+    padding: 0.5em;
+    display: inline-block;
+}
+
+main .editbug input[type=submit]:hover {
+    background-color: var(--LightGreen);
+}
+
+main .log {
+    margin: 8em auto;
+    width: 75%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+    min-height: 90vh;
+}
+
+main .log h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .log table {
+    //border-collapse: separate;
+    //border-spacing: 0 1em;
+    width: 100%;
+}
+
+main .log table td, main .log table th {
+    padding: 1em;
+}
+
+main .log table th {
+    font-weight: normal;
+}
+
+main .log table td {
+    font-weight: lighter !important;
+}
+
+main .log table tr:nth-child(2n) {
+    background-color: var(--Grey2);
+}
+
+main .log td:nth-child(1) {
+    font-weight: normal;
+    width: 30%;
+}
+
+main .log td:nth-child(2) {
+    width: 70%;
+}
+
+main .log .buttons {
+    margin: 0 0;
+    padding: 0;
+}
+
+main .log .buttons ul {
+    margin: 3em 0 3em 0;
+    padding: 0;
+}
+
+main .log .buttons ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+main .log .buttons ul li a {
+    padding: 1em;
+    color: white;
+    background-color: var(--DarkGreen);
+    border-radius: 5px;
+    margin: 0 1em 0 0;
+}
+
+main .log .buttons ul li a:hover {
+    background-color: var(--LightGreen);
+    text-decoration: none;
+}
+
+main .file {
+    margin: 8em auto;
+    width: 75%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+    min-height: 90vh;
+}
+
+main .file h1 {
+    font-weight: lighter !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .file a {
+    padding: 1em;
+    color: white;
+    background-color: var(--DarkGreen);
+    border-radius: 5px;
+    margin: 3em 0 0 0;
+    display: inline-block;
+}
+
+main .file a:hover {
+    background-color: var(--LightGreen);
+    text-decoration: none;
+}
+
+main .file #Myform input[type=submit] {
+    all: unset;
+    font-weight: lighter !important;
+    background-color: var(--LightGreen);
+    color: white;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin: 0 0 0 -5em;
+}
+
+main .file #Myform input[type=submit]:hover {
+    color: var(--Grey2);
+}
+
+main .file #Myform input {
+    font-weight: lighter !important;
+}
+
+main .file #Myform input[type=file] {
+    all: unset !important;
+    border: none !important;
+    background-color: var(--DarkGreen) !important;
+    padding:1em !important;
+    color: white !important;
+    border-radius: 5px !important;
+}
+
+main .file #Myform input[type=] {
+    background-color: var(--DarkGreen) !important;
+}
+
+main .comments {
+    margin: 8em auto;
+    width: 75%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+    min-height: 90vh;
+}
+
+main .comments h1 {
+    font-weight: lighter;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+main .comments textarea {
+    all: unset;
+    display: block;
+    background-color: var(--DarkGreen);
+    color: white;
+    font-weight: lighter;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    height: 5em;
+    margin: 0 0 1em 0;
+}
+
+main .comments input[type=submit], main .comments a {
+    all:unset;
+    padding: 0.5em;
+    background-color: var(--DarkGreen);
+    color: white;
+    font-weight: lighter;
+    border-radius: 5px;
+    display: block;
+    margin: 0 0 3em 0;
+}
+
+main .comments input[type=submit]:hover, main .comments a:hover {
+    background-color: var(--LightGreen);
+}
+
+main .comments a {
+    width: fit-content;
+    text-align: right;
+    position: absolute;
+    right: 13.8em;
+    margin: -5.5em 0 0 0;
+}
+
+main .comments table {
+    width: 100%;
+}
+
+main .comments table td, main .comments table th {
+    padding: 1em;
+}
+
+main .comments table td:nth-child(1), main .comments table td:nth-child(2) {
+    padding: 1em;
+    width: 15%;
+}
+
+main .comments table td:nth-child(3){
+    width: 70%;
+    overflow: hidden;
+}
+
+main .comments table th {
+font-weight: normal;
+}
+
+main .comments table td {
+    font-weight: lighter !important;
+}
+
+main .comments table tr:nth-child(2n) {
+    background-color: var(--Grey2);
+}
+
+main .products {
+    margin: 8em auto;
+    width: 50%;
+    background-color: var(--Grey);
+    border-radius: 10px;
+    padding: 70px;
+    min-height: 90vh;
+}
+
+main .products h1 {
+    font-weight: lighter !important;
+    margin: 0 0 1em 0;
+    text-align: center;
+}
+
+main .products table {
+    width: 100%;
+}
+
+main .products table td {
+    padding: 1em;
+    font-weight: lighter !important;
+    text-align: center;
+}
+
+main .products table tr:nth-child(2n) {
+    background-color: var(--Grey2);
+}
+
+main .products table tr:hover {
+    background-color: var(--DarkGreen);
+}
